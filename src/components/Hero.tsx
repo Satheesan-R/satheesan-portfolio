@@ -48,7 +48,7 @@ const Hero = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-lg md:text-xl text-muted-foreground max-w-lg leading-relaxed"
               >
-                A passionate <span className="text-foreground font-semibold">Full-Stack Developer</span> and third-year CS student, crafting beautiful web experiences with modern technologies.
+                A passionate <span className="text-foreground font-semibold">Software Engineer</span> and third-year CS student, crafting beautiful web experiences with modern technologies.
               </motion.p>
 
               <motion.div
@@ -87,21 +87,17 @@ const Hero = () => {
                 <img
                   src="/WhatsApp%20Image%202026-02-28%20at%203.00.42%20PM.jpeg"
                   alt="Portrait photo"
-                  onError={(even.2, duration: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
-        >
-          <a href="#about" className="text-muted-foreground hover:text-primary transition-colors animate-float">
-            <ArrowDown size={24} />
-          </a>
-        </motion.div>
-      </div>
-    </section>
-  );
-};
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.src = "/placeholder.jpg"; // Fallback image if photo fails to load
+                  }}
+                />
+              </div>
+            </div>
+          </motion.div>
+        </div>
 
-export default Hero;
-
-
+        {/* Arrow Down Section - Only Once */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -109,7 +105,7 @@ export default Hero;
           className="absolute bottom-10 left-1/2 -translate-x-1/2"
         >
           <a href="#about" className="text-muted-foreground hover:text-primary transition-colors animate-float">
-            <ArrowDown size={20} />
+            <ArrowDown size={24} />
           </a>
         </motion.div>
       </div>
