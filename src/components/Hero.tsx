@@ -88,9 +88,6 @@ const Hero = () => {
                   src="/WhatsApp%20Image%202026-02-28%20at%203.00.42%20PM.jpeg"
                   alt="Portrait photo"
                   className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.target.src = "/placeholder.jpg"; // Fallback image if photo fails to load
-                  }}
                 />
               </div>
             </div>
