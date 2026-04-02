@@ -91,12 +91,16 @@ const Hero = () => {
           className="absolute bottom-10 left-1/2 -translate-x-1/2"
         >
           <a href="#about" className="text-muted-foreground hover:text-primary transition-colors animate-float">
-            <ArrowDown size={24full h-full object-cover"
-                />
-              </div>
-            </div>
-          </motion.div>
-        </div>
+            <ArrowDown size={24} />
+          </a>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
+
 
         <motion.div
           initial={{ opacity: 0 }}
