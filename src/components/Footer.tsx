@@ -16,7 +16,7 @@ const Footer = () => {
               <Mail size={18} />
             </a>
             <a
-              href="https://github.com/rajasekar"
+              href="https://github.com/Satheesan-R"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
@@ -24,7 +24,7 @@ const Footer = () => {
               <Github size={18} />
             </a>
             <a
-              href="https://linkedin.com/in/rajasekar"
+              href="https://linkedin.com/in/Satheesan-R"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"

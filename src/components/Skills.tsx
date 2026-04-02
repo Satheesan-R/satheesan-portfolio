@@ -4,22 +4,32 @@ import { useRef } from "react";
 const skillCategories = [
   {
     title: "Languages",
+    image:
+      "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80",
     skills: ["C", "C++", "JavaScript", "Python", "PHP" ,"TypeScript"],
   },
   {
     title: "Frontend",
+    image:
+      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80",
     skills: ["React", "HTML5", "CSS3" ,"Tailwind CSS", ],
   },
   {
     title: "Backend",
+    image:
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
     skills: ["Node.js", "Express","Rest APIs","JWT Authentication"],
   },
   {
     title: "Databases",
+    image:
+      "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=1200&q=80",
     skills: ["MySQL", "MongoDB" ,"PostgreSQL" ,"Supabase"],
   },
   {
     title: "Tools",
+    image:
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
     skills: ["GitHub", "Docker" ,"VS Code" ,"Postman","Figma"],
   },
 ];
@@ -49,20 +59,33 @@ const Skills = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="glass-card rounded-2xl p-6 hover:border-primary/30 transition-colors group"
+                className="glass-card rounded-2xl overflow-hidden hover:border-primary/30 transition-colors group"
               >
-                <h3 className="font-heading text-lg font-semibold mb-4 text-primary">
-                  {cat.title}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {cat.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1.5 text-sm rounded-lg bg-secondary text-secondary-foreground font-medium group-hover:bg-primary/10 group-hover:text-primary transition-colors"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                <div className="relative h-40 overflow-hidden">
+                  <img
+                    src={cat.image}
+                    alt={`${cat.title} skills illustration`}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/25 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h3 className="font-heading text-lg font-semibold text-white drop-shadow-md">
+                      {cat.title}
+                    </h3>
+                  </div>
+                </div>
+
+                <div className="p-6">
+                  <div className="flex flex-wrap gap-2">
+                    {cat.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-3 py-1.5 text-sm rounded-lg bg-secondary text-secondary-foreground font-medium group-hover:bg-primary/10 group-hover:text-primary transition-colors"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             ))}
