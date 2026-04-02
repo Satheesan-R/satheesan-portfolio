@@ -41,7 +41,7 @@ const Contact = () => {
 
           <div className="flex justify-center gap-4 mb-10">
             <a
-              href="https://github.com/rajasekar"
+              href="https://github.com/Satheesan-R"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-xl bg-secondary text-secondary-foreground hover:bg-primary/10 hover:text-primary transition-colors"
@@ -49,7 +49,7 @@ const Contact = () => {
               <Github size={20} />
             </a>
             <a
-              href="https://linkedin.com/in/rajasekar"
+              href="https://linkedin.com/in/Satheesan-R"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-xl bg-secondary text-secondary-foreground hover:bg-primary/10 hover:text-primary transition-colors"
