@@ -1,6 +1,7 @@
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
-import { ExternalLink, X, Github } from "lucide-react";
+import { ExternalLink, X, Github, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface Project {
   title: string;
@@ -117,6 +118,20 @@ const Projects = () => {
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="flex justify-center mt-12"
+          >
+            <Link
+              to="/all-projects"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border-2 border-primary bg-primary/10 text-primary font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300 transform hover:scale-105"
+            >
+              See All My Projects <ArrowRight size={18} />
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
 
