@@ -5,6 +5,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import emailjs from '@emailjs/browser';
+
+emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
 const queryClient = new QueryClient();
 

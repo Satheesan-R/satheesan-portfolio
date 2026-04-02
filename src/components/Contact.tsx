@@ -1,18 +1,45 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Mail, Send, Github, Linkedin } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setForm({ name: "", email: "", message: "" });
-    setTimeout(() => setSubmitted(false), 3000);
+    if (sending) return;
+
+    try {
+      setSending(true);
+      
+      const templateParams = {
+        name: form.name,
+        email: form.email,
+        message: form.message,
+        time: new Date().toLocaleString(),
+      };
+
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+
+      setSubmitted(true);
+      setForm({ name: "", email: "", message: "" });
+      setTimeout(() => setSubmitted(false), 3000);
+    } catch (error) {
+      console.error("Email send failed:", error);
+      alert("Failed to send message. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -100,9 +127,10 @@ const Contact = () => {
             </div>
             <button
               type="submit"
-              className="w-full flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity glow"
+              disabled={sending}
+              className="w-full flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity glow disabled:opacity-70 disabled:cursor-not-allowed"
             >
-              {submitted ? "Message Sent! ✓" : <><Send size={16} /> Send Message</>}
+              {submitted ? "Message Sent! ✓" : <><Send size={16} /> {sending ? "Sending..." : "Send Message"}</>}
             </button>
           </form>
         </motion.div>
