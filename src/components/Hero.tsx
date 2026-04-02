@@ -19,7 +19,7 @@ const Hero = () => {
             className="flex justify-center lg:justify-start"
           >
             <img
-              src="/profile.jpg"
+              src="/WhatsApp%20Image%202026-02-28%20at%203.00.42%20PM.jpeg"
               alt="Portrait photo"
               onError={(event) => {
                 event.currentTarget.onerror = null;
