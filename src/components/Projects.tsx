@@ -8,6 +8,9 @@ interface Project {
   longDescription: string;
   tech: string[];
   github: string;
+  image: string;
+  imageFit?: "cover" | "contain";
+  imagePositionClass?: string;
 }
 
 const projects: Project[] = [
@@ -19,6 +22,8 @@ const projects: Project[] = [
       "RiseTogether is a full-stack web application that brings people together around shared goals. It features user authentication, team creation, goal tracking, and a community feed. Built with a focus on clean architecture and responsive design.",
     tech: ["React", "Node.js", "MongoDB", "Express"],
     github: "https://github.com/Satheesan-R/RiseTogether-Platform",
+    image:
+      "/3.webp",
   },
   {
     title: "Smart Vehicle Service Booking",
@@ -28,6 +33,8 @@ const projects: Project[] = [
       "This system streamlines the vehicle servicing process by allowing users to book service appointments online. Features include real-time availability, service history tracking, automated reminders, and an admin dashboard for managing bookings and staff.",
     tech: ["PHP", "MySQL", "JavaScript", "CSS"],
     github: "https://github.com/Satheesan-R/smart-vehicle-service-booking-system",
+    image:
+      "https://images.unsplash.com/photo-1486006920555-c77dcf18193c?auto=format&fit=crop&w=1200&q=80",
   },
   {
     title: "Caretaker Management System",
@@ -37,6 +44,10 @@ const projects: Project[] = [
       "A complete management solution for organizing caretaker schedules, assignments, and performance tracking. The system includes role-based access control, shift scheduling, task assignment, and reporting capabilities for administrators.",
     tech: ["Python", "MySQL", "HTML", "CSS"],
     github: "https://github.com/Satheesan-R/caretaker-management-system",
+    image:
+      "/download.jpg",
+    imageFit: "cover",
+    imagePositionClass: "object-[center_30%]",
   },
 ];
 
@@ -67,26 +78,41 @@ const Projects = () => {
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: i * 0.15 }}
                 onClick={() => setSelected(project)}
-                className="glass-card rounded-2xl p-6 cursor-pointer hover:border-primary/40 hover:-translate-y-1 transition-all duration-300 group"
+                className="glass-card rounded-2xl overflow-hidden cursor-pointer hover:border-primary/40 hover:-translate-y-1 transition-all duration-300 group"
               >
-                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                  <ExternalLink size={18} className="text-primary" />
+                <div className="relative h-44 overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={`${project.title} preview`}
+                    className={`w-full h-full transition-transform duration-500 group-hover:scale-105 ${
+                      project.imageFit === "contain"
+                        ? "object-contain bg-secondary/40"
+                        : `object-cover ${project.imagePositionClass ?? "object-[center_62%]"}`
+                    }`}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent" />
                 </div>
-                <h3 className="font-heading text-xl font-semibold mb-3">
-                  {project.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="text-xs px-2.5 py-1 rounded-md bg-primary/10 text-primary font-medium"
-                    >
-                      {t}
-                    </span>
-                  ))}
+
+                <div className="p-6">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                    <ExternalLink size={18} className="text-primary" />
+                  </div>
+                  <h3 className="font-heading text-xl font-semibold mb-3">
+                    {project.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((t) => (
+                      <span
+                        key={t}
+                        className="text-xs px-2.5 py-1 rounded-md bg-primary/10 text-primary font-medium"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -121,6 +147,18 @@ const Projects = () => {
 
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
                 <ExternalLink size={22} className="text-primary" />
+              </div>
+
+              <div className="rounded-xl overflow-hidden mb-5 border border-border">
+                <img
+                  src={selected.image}
+                  alt={`${selected.title} preview`}
+                  className={`w-full h-52 ${
+                    selected.imageFit === "contain"
+                      ? "object-contain bg-secondary/40"
+                      : `object-cover ${selected.imagePositionClass ?? "object-[center_62%]"}`
+                  }`}
+                />
               </div>
 
               <h3 className="font-heading text-2xl font-bold mb-3">
