@@ -18,7 +18,7 @@ const projects: Project[] = [
     longDescription:
       "RiseTogether is a full-stack web application that brings people together around shared goals. It features user authentication, team creation, goal tracking, and a community feed. Built with a focus on clean architecture and responsive design.",
     tech: ["React", "Node.js", "MongoDB", "Express"],
-    github: "https://github.com/rajasekar",
+    github: "https://github.com/Satheesan-R/RiseTogether-Platform",
   },
   {
     title: "Smart Vehicle Service Booking",
@@ -27,7 +27,7 @@ const projects: Project[] = [
     longDescription:
       "This system streamlines the vehicle servicing process by allowing users to book service appointments online. Features include real-time availability, service history tracking, automated reminders, and an admin dashboard for managing bookings and staff.",
     tech: ["PHP", "MySQL", "JavaScript", "CSS"],
-    github: "https://github.com/rajasekar",
+    github: "https://github.com/Satheesan-R/smart-vehicle-service-booking-system",
   },
   {
     title: "Caretaker Management System",
@@ -36,7 +36,7 @@ const projects: Project[] = [
     longDescription:
       "A complete management solution for organizing caretaker schedules, assignments, and performance tracking. The system includes role-based access control, shift scheduling, task assignment, and reporting capabilities for administrators.",
     tech: ["Python", "MySQL", "HTML", "CSS"],
-    github: "https://github.com/rajasekar",
+    github: "https://github.com/Satheesan-R/caretaker-management-system",
   },
 ];
 
