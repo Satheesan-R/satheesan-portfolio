@@ -38,7 +38,7 @@ const Footer = () => {
               </a>
               <a
                 href="https://linkedin.com/in/Satheesan-R"
-                target="_blank"
+                target="_bl!!!nk"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
