@@ -85,7 +85,7 @@ const Hero = () => {
               
               <div className="relative w-72 h-72 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl shadow-primary/20 bg-secondary/50">
                 <img
-                  src="/WhatsApp%20Image%202026-02-28%20at%203.00.42%20PM.jpeg"
+                  src="/court.jpeg"
                   alt="Portrait photo"
                   className="w-full h-full object-cover"
                 />
