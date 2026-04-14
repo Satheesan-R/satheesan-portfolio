@@ -87,7 +87,7 @@ const Hero = () => {
                 <img
                   src="/court.jpeg"
                   alt="Portrait photo"
-                  className="w-full h-full object-contain object-top"
+                  className="w-full h-full object-cover object-[center_20%]"
                 />
               </div>
             </div>
